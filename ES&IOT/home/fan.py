@@ -1,0 +1,31 @@
+import RPi.GPIO as GPIO
+import time
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(29, GPIO.OUT)
+GPIO.setup(16, GPIO.OUT)
+GPIO.setup(18, GPIO.OUT)
+p=GPIO.PWM(29, 100)
+p.start(0)
+
+while True:
+        p.ChangeDutyCycle(0)
+	GPIO.output(16, GPIO.HIGH)
+	GPIO.output(18, GPIO.LOW)
+        time.sleep(1)
+	p.ChangeDutyCycle(25)
+        GPIO.output(16, GPIO.HIGH)
+        GPIO.output(18, GPIO.LOW)
+	time.sleep(1)
+        p.ChangeDutyCycle(50)
+        GPIO.output(16, GPIO.HIGH)
+        GPIO.output(18, GPIO.LOW)
+        time.sleep(1)
+        p.ChangeDutyCycle(75)
+        GPIO.output(16, GPIO.HIGH)
+        GPIO.output(18, GPIO.LOW)
+        time.sleep(1)
+        p.ChangeDutyCycle(100)
+        GPIO.output(16, GPIO.HIGH)
+        GPIO.output(18, GPIO.LOW)
+        time.sleep(1)
+
